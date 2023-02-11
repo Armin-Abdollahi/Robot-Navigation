@@ -20,7 +20,9 @@ end
 % Mutation
 
 
-
+beta=unifrnd(BetaLb,BetaUb);
+        
+u=pop(A).x+beta.*(pop(B).x-pop(C).x);
 
 
 
