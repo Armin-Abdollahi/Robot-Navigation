@@ -1,19 +1,6 @@
 clc             % Clear command window
 clear           % Clear workspace
 
-%% Create environment
-
-X_Min = 0;
-X_Max = 10;
-
-Y_Min = 0;
-Y_Max = 10;
-
-axis([X_Min X_Max Y_Min Y_Max]);
-
-Lower_Boundary = [X_Min X_Max];
-Upper_Boundary = [Y_Min Y_Max];
-
 %% The starting point of the robot
 X_Start = 1;
 Y_Start = 1;
@@ -44,22 +31,35 @@ y = R_Circle*sin(theta) + Y_Circle;       %
 
 %% Plot the blocks & robot
 hold on
-plot(X_Line1,Y_Line1,'linewidth',5, 'Color','Black');    % Plot the line 1
+plot(X_Line1,Y_Line1,'linewidth',5, 'Color','Black');            % Plot the line 1
 
-plot(X_Line2,Y_Line2,'linewidth',5, 'Color','Black');    % Plot the line 2
+plot(X_Line2,Y_Line2,'linewidth',5, 'Color','Black');            % Plot the line 2
 
-plot(X_Line3,Y_Line3,'linewidth',5, 'Color','Black');    % plot the line 3
+plot(X_Line3,Y_Line3,'linewidth',5, 'Color','Black');            % plot the line 3
 
-plot(X_Line4,Y_Line4,'linewidth',5, 'Color','Black');    % Plot the line 4
+plot(X_Line4,Y_Line4,'linewidth',5, 'Color','Black');            % Plot the line 4
 
-plot(x,y, 'Color','Black');                              % Plot the circle
+plot(x,y, 'Color','Black');                                      % Plot the circle
 
-plot(X_Start,Y_Start,'rs');                              % Plot the robot start point coordinates
+plot(X_Start,Y_Start,'rs','MarkerSize',9,'Color','Blue');        % Plot the robot start point coordinates
 
-plot(X_Target,Y_Target,'rs', 'Color','Blue');            % Plot the robot target point coordinates
+plot(X_Target,Y_Target,'kp','MarkerSize',12,'Color','red');      % Plot the robot target point coordinates
 
 %% The number of robot steps
 n=3;
 
 %% The number of variable
 nvar=2*n;
+
+%% Create environment
+
+X_Min = 0;
+X_Max = 10;
+
+Y_Min = 0;
+Y_Max = 10;
+
+axis([X_Min X_Max Y_Min Y_Max]);
+
+Lower_Boundary = [X_Min*ones(1,n) Y_Min*ones(1,n)];
+Upper_Boundary = [X_Max*ones(1,n) Y_Max*ones(1,n)];
