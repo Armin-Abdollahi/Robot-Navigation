@@ -63,3 +63,28 @@ axis([X_Min X_Max Y_Min Y_Max]);
 
 Lower_Boundary = [X_Min*ones(1,n) Y_Min*ones(1,n)];
 Upper_Boundary = [X_Max*ones(1,n) Y_Max*ones(1,n)];
+
+%% Fitness Evaluate
+global NFE                                   % Number of fitness function evaluate
+if NFE == 0
+
+    % Moving points exactly between the lower and upper limits of the moving space
+    xx = linspace(X_Start, X_Target, n+2);
+    yy = linspace(Y_Start, Y_Target, n+2);
+
+end
+
+NFE = NFE + 1;
+
+%% Robot steps
+X_Start = [X_Start X X_Target];
+Y_Start = [Y_Start Y Y_Target];
+
+CS = numel(X_Start);                         % Counting steps
+
+%% Plot
+disp('=======================================================')
+disp('                     Best Solution                     ')
+disp('=======================================================')
+plot(Solution)
+disp('Number Of Function Evaluations = ',num2str(NFE))
