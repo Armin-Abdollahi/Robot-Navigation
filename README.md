@@ -1,6 +1,6 @@
 # Robot-Navigation
 
-## Main Article:
+Main Article:
 https://www.sciencedirect.com/science/article/pii/S2405896318310565
 
 ## Graphical description of first test.
